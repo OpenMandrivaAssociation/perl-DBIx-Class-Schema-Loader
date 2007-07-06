@@ -18,6 +18,10 @@ BuildRequires:	perl(DBI) >= 1.56
 BuildRequires:	perl(DBIx::Class) >= 0.07006
 BuildRequires:	perl(UNIVERSAL::require)
 BuildRequires:	perl(Lingua::EN::Inflect::Number)
+BuildRequires:	perl(Class::Data::Accessor)
+BuildRequires:	perl(DBD::mysql)
+BuildRequires:	perl(DBD::Pg)
+BuildRequires:	perl(DBD::SQLite)
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
