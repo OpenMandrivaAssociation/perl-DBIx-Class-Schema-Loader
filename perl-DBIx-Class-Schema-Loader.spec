@@ -22,6 +22,8 @@ BuildRequires:	perl(Class::Data::Accessor)
 BuildRequires:	perl(DBD::mysql)
 BuildRequires:	perl(DBD::Pg)
 BuildRequires:	perl(DBD::SQLite)
+BuildRequires:	perl(DBD::SQLite2)
+BuildRequires:	perl(Data::Dump)
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
@@ -56,6 +58,7 @@ don't shy away from it just for fears of the transition down the road.
 %setup -q -n %{module}-%{version}
 
 %build
+%{__perl}  -pi -e "s/('DBD::(DB2|Oracle))/#$1/g" Makefile.PL
 %{__perl} Makefile.PL INSTALLDIRS=vendor <</dev/null
 %make
 
