@@ -38,13 +38,10 @@ DBD::Oracle. Other DBI drivers may function to a greater or lesser degree with
 this loader, depending on how much of the DBI spec they implement, and how
 standard their implementation is.
 
-Patches to make other DBDs work correctly welcome.
-
 See DBIx::Class::Schema::Loader::DBI::Writing for notes on writing your own
 vendor-specific subclass for an unsupported DBD driver.
 
-This module requires DBIx::Class 0.07006 or later, and obsoletes the older
-DBIx::Class::Loader.
+This module obsoletes the older DBIx::Class::Loader.
 
 This module is designed more to get you up and running quickly against an
 existing database, or to be effective for simple situations, rather than to be
