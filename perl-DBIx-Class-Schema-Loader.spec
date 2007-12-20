@@ -25,6 +25,7 @@ BuildRequires:	perl(DBD::SQLite)
 BuildRequires:	perl(DBD::SQLite2)
 BuildRequires:	perl(Data::Dump)
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 DBIx::Class::Schema::Loader automates the definition of a DBIx::Class::Schema
