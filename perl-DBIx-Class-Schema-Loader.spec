@@ -1,7 +1,7 @@
 %define module	    DBIx-Class-Schema-Loader
 %define name	    perl-%{module}
 %define version     0.04005
-%define release     %mkrel 1
+%define release     %mkrel 2
 
 Name:		%{name}
 Version:	%{version}
