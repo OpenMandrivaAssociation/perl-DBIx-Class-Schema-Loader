@@ -56,7 +56,7 @@ don't shy away from it just for fears of the transition down the road.
 
 %build
 %{__perl}  -pi -e "s/('DBD::(DB2|Oracle))/#$1/g" Makefile.PL
-%{__perl} Makefile.PL INSTALLDIRS=vendor <</dev/null
+%{__perl} Makefile.PL INSTALLDIRS=vendor --skipdeps
 %make
 
 %check
