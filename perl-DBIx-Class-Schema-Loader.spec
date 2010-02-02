@@ -1,31 +1,32 @@
-%define module	    DBIx-Class-Schema-Loader
-%define name	    perl-%{module}
-%define version     0.04006
-%define release     %mkrel 1
+%define upstream_name	 DBIx-Class-Schema-Loader
+%define upstream_version 0.05000
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Dynamic definition of a DBIx::Class::Schema
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{module}
-Source:     http://www.cpan.org/modules/by-module/DBIx/%{module}-%{version}.tar.bz2
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/DBIx/%{upstream_name}-%{upstream_version}.tar.gz
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
-BuildRequires:	perl(DBI) >= 1.56
-BuildRequires:	perl(DBIx::Class) >= 0.07006
-BuildRequires:	perl(UNIVERSAL::require)
-BuildRequires:	perl(Lingua::EN::Inflect::Number)
 BuildRequires:	perl(Class::Data::Accessor)
+BuildRequires:	perl(Data::Dump)
 BuildRequires:	perl(DBD::mysql)
 BuildRequires:	perl(DBD::Pg)
 BuildRequires:	perl(DBD::SQLite)
 BuildRequires:	perl(DBD::SQLite2)
-BuildRequires:	perl(Data::Dump)
+BuildRequires:	perl(DBI) >= 1.56
+BuildRequires:	perl(DBIx::Class) >= 0.70.60
+BuildRequires:	perl(Lingua::EN::Inflect::Number)
+BuildRequires:	perl(UNIVERSAL::require)
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 DBIx::Class::Schema::Loader automates the definition of a DBIx::Class::Schema
@@ -52,7 +53,7 @@ to one that doesn't use this module should be straightforward and painless, so
 don't shy away from it just for fears of the transition down the road.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl}  -pi -e "s/('DBD::(DB2|Oracle))/#$1/g" Makefile.PL
@@ -60,7 +61,7 @@ don't shy away from it just for fears of the transition down the road.
 %make
 
 %check
-%{__make} test
+%make test
 
 %install
 rm -rf %{buildroot}
@@ -73,4 +74,4 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{perl_vendorlib}/DBIx
 %{_mandir}/*/*
-
+%{_bindir}/dbicdump
