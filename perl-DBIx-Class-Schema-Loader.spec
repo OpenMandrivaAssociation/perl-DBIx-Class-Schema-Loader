@@ -26,6 +26,7 @@ BuildRequires:	perl(DBD::Sybase)
 BuildRequires:	perl(DBI) >= 1.56
 BuildRequires:	perl(DBIx::Class) >= 0.70.60
 BuildRequires:	perl(Lingua::EN::Inflect::Number)
+BuildRequires:  perl(Test::Exception)
 BuildRequires:  perl(Test::More)  >= 0.940.0
 BuildRequires:	perl(UNIVERSAL::require)
 
