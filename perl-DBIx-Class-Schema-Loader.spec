@@ -16,14 +16,17 @@ Source0:    http://www.cpan.org/modules/by-module/DBIx/%{upstream_name}-%{upstre
 BuildRequires:	perl-devel
 %endif
 BuildRequires:	perl(Class::Data::Accessor)
+BuildRequires:	perl(Class::Unload)
 BuildRequires:	perl(Data::Dump)
 BuildRequires:	perl(DBD::mysql)
 BuildRequires:	perl(DBD::Pg)
 BuildRequires:	perl(DBD::SQLite)
 BuildRequires:	perl(DBD::SQLite2)
+BuildRequires:	perl(DBD::Sybase)
 BuildRequires:	perl(DBI) >= 1.56
 BuildRequires:	perl(DBIx::Class) >= 0.70.60
 BuildRequires:	perl(Lingua::EN::Inflect::Number)
+BuildRequires:  perl(Test::More)  >= 0.940.0
 BuildRequires:	perl(UNIVERSAL::require)
 
 BuildArch:	noarch
