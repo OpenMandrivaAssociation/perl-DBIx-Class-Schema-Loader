@@ -1,5 +1,5 @@
 %define upstream_name	 DBIx-Class-Schema-Loader
-%define upstream_version 0.05002
+%define upstream_version 0.05003
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -11,10 +11,6 @@ License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/DBIx/%{upstream_name}-%{upstream_version}.tar.gz
-
-%if %{mdkversion} < 1010
-BuildRequires:	perl-devel
-%endif
 BuildRequires:	perl(Class::Data::Accessor)
 BuildRequires:	perl(Class::Unload)
 BuildRequires:	perl(Data::Dump)
@@ -27,7 +23,7 @@ BuildRequires:	perl(DBI) >= 1.56
 BuildRequires:	perl(DBIx::Class) >= 0.70.60
 BuildRequires:	perl(Lingua::EN::Inflect::Number)
 BuildRequires:  perl(Test::Exception)
-BuildRequires:  perl(Test::More)  >= 0.940.0
+#BuildRequires:  perl(Test::More)  >= 0.940.0
 BuildRequires:	perl(UNIVERSAL::require)
 
 BuildArch:	noarch
