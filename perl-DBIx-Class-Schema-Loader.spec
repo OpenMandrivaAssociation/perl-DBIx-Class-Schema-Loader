@@ -11,6 +11,7 @@ License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/DBIx/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires:	perl(Class::Data::Accessor)
 BuildRequires:	perl(Class::Unload)
 BuildRequires:	perl(Data::Dump)
@@ -22,8 +23,9 @@ BuildRequires:	perl(DBD::Sybase)
 BuildRequires:	perl(DBI) >= 1.56
 BuildRequires:	perl(DBIx::Class) >= 0.70.60
 BuildRequires:	perl(Lingua::EN::Inflect::Number)
+BuildRequires:	perl(Lingua::EN::Inflect::Phrase)
 BuildRequires:  perl(Test::Exception)
-#BuildRequires:  perl(Test::More)  >= 0.940.0
+BuildRequires:  perl(Test::More)  >= 0.940.0
 BuildRequires:	perl(UNIVERSAL::require)
 
 BuildArch:	noarch
