@@ -1,5 +1,5 @@
 %define upstream_name	 DBIx-Class-Schema-Loader
-%define upstream_version 0.05003
+%define upstream_version 0.06001
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
