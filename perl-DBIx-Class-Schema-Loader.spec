@@ -26,6 +26,7 @@ BuildRequires:	perl(Lingua::EN::Inflect::Number)
 BuildRequires:	perl(Lingua::EN::Inflect::Phrase)
 BuildRequires:  perl(Test::Exception)
 BuildRequires:  perl(Test::More)  >= 0.940.0
+BuildRequires:  perl(Test::Warn)
 BuildRequires:	perl(UNIVERSAL::require)
 
 BuildArch:	noarch
