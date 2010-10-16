@@ -3,7 +3,7 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Release:    %mkrel 2
 Epoch:      1
 
 Summary:	Dynamic definition of a DBIx::Class::Schema
@@ -28,6 +28,7 @@ BuildRequires:  perl(Test::Exception)
 BuildRequires:  perl(Test::More)  >= 0.940.0
 BuildRequires:  perl(Test::Warn)
 BuildRequires:	perl(UNIVERSAL::require)
+Provides: perl(DBIx::Class::Schema::Loader::Utils)
 
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
