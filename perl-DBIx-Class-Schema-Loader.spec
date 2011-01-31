@@ -13,6 +13,7 @@ Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/DBIx/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl(Class::Data::Accessor)
+BuildRequires:	perl(Class::Load)
 BuildRequires:	perl(Class::Unload)
 BuildRequires:	perl(Data::Dump)
 BuildRequires:	perl(DBD::mysql)
