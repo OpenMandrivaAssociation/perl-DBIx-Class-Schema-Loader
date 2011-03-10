@@ -1,9 +1,9 @@
 %define upstream_name	 DBIx-Class-Schema-Loader
-%define upstream_version 0.07007
+%define upstream_version 0.07010
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 Epoch:      1
 
 Summary:	Dynamic definition of a DBIx::Class::Schema
