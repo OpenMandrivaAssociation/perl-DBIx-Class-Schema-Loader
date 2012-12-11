@@ -1,17 +1,18 @@
 %define upstream_name	 DBIx-Class-Schema-Loader
 %define upstream_version 0.07010
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
-Epoch:      1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
+Epoch:		1
 
 Summary:	Dynamic definition of a DBIx::Class::Schema
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/DBIx/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/DBIx/%{upstream_name}-%{upstream_version}.tar.gz
 
+BuildRequires:	perl-devel
 BuildRequires:	perl(Class::Data::Accessor)
 BuildRequires:	perl(Class::Load)
 BuildRequires:	perl(Class::Unload)
@@ -29,10 +30,9 @@ BuildRequires:  perl(Test::Exception)
 BuildRequires:  perl(Test::More)  >= 0.940.0
 BuildRequires:  perl(Test::Warn)
 BuildRequires:	perl(UNIVERSAL::require)
-Provides: perl(DBIx::Class::Schema::Loader::Utils)
+Provides:	perl(DBIx::Class::Schema::Loader::Utils)
 
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 DBIx::Class::Schema::Loader automates the definition of a DBIx::Class::Schema
@@ -62,22 +62,118 @@ don't shy away from it just for fears of the transition down the road.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl}  -pi -e "s/('DBD::(DB2|Oracle))/#$1/g" Makefile.PL
-%{__perl} Makefile.PL INSTALLDIRS=vendor --skipdeps
+perl  -pi -e "s/('DBD::(DB2|Oracle))/#$1/g" Makefile.PL
+perl Makefile.PL INSTALLDIRS=vendor --skipdeps
 %make
 
 %check
 %make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{perl_vendorlib}/DBIx
 %{_mandir}/*/*
 %{_bindir}/dbicdump
+
+
+%changelog
+* Thu Mar 10 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1:0.70.100-1mdv2011.0
++ Revision: 643375
+- update to new version 0.07010
+
+* Mon Feb 28 2011 Funda Wang <fwang@mandriva.org> 1:0.70.70-2
++ Revision: 640765
+- rebuild to obsolete old packages
+
+* Fri Feb 18 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1:0.70.70-1
++ Revision: 638476
+- update to new version 0.07007
+
+* Tue Feb 01 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1:0.70.60-1
++ Revision: 634668
+- update to new version 0.07006
+
+* Mon Jan 31 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1:0.70.50-1
++ Revision: 634431
+- update to new version 0.07005
+
+* Sat Oct 16 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1:0.70.20-2mdv2011.0
++ Revision: 586142
+- fix dependencies
+
+* Sat Oct 16 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1:0.70.20-1mdv2011.0
++ Revision: 586099
+- new version
+- new version
+
+* Sun Apr 18 2010 Jérôme Quelin <jquelin@mandriva.org> 1:0.60.10-1mdv2010.1
++ Revision: 536139
+- adding missing buildrequires:
+- update to 0.06001
+
+* Wed Feb 24 2010 Jérôme Quelin <jquelin@mandriva.org> 1:0.50.30-1mdv2010.1
++ Revision: 510520
+- update to 0.05003
+
+  + Guillaume Rousse <guillomovitch@mandriva.org>
+    - new version
+
+* Mon Feb 15 2010 Jérôme Quelin <jquelin@mandriva.org> 1:0.50.20-1mdv2010.1
++ Revision: 506237
+- update to 0.05002
+
+* Mon Feb 08 2010 Jérôme Quelin <jquelin@mandriva.org> 1:0.50.10-1mdv2010.1
++ Revision: 502093
+- update to 0.05001
+
+* Tue Feb 02 2010 Jérôme Quelin <jquelin@mandriva.org> 1:0.50.0-1mdv2010.1
++ Revision: 499694
+- adding missing buildrequires:
+- adding missing buildrequires:
+- bumping epoch
+- update to 0.05000
+
+* Thu May 21 2009 Jérôme Quelin <jquelin@mandriva.org> 0.04006-1mdv2010.0
++ Revision: 378139
+- update to new version 0.04006
+
+* Fri Aug 08 2008 Thierry Vignaud <tv@mandriva.org> 0.04005-2mdv2009.0
++ Revision: 268406
+- rebuild early 2009.0 package (before pixel changes)
+
+* Tue Apr 15 2008 Guillaume Rousse <guillomovitch@mandriva.org> 0.04005-1mdv2009.0
++ Revision: 193796
+- update to new version 0.04005
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+    - fix description
+
+* Mon Nov 19 2007 Guillaume Rousse <guillomovitch@mandriva.org> 0.04004-1mdv2008.1
++ Revision: 110282
+- update to new version 0.04004
+
+* Fri Oct 12 2007 Guillaume Rousse <guillomovitch@mandriva.org> 0.04003-1mdv2008.1
++ Revision: 97492
+- update to new version 0.04003
+
+* Tue Aug 28 2007 Guillaume Rousse <guillomovitch@mandriva.org> 0.04002-1mdv2008.0
++ Revision: 72801
+- update to new version 0.04002
+
+* Wed Aug 22 2007 Buchan Milne <bgmilne@mandriva.org> 0.04001-1mdv2008.0
++ Revision: 68881
+- Buildrequires
+- Try and avoid CPAN totally
+
+  + Guillaume Rousse <guillomovitch@mandriva.org>
+    - import perl-DBIx-Class-Schema-Loader
+
+
+* Wed Jul 04 2007 Guillaume Rousse <guillomovitch@mandriva.org> 0.04001-1mdv2008.0
+- initial mdv release
