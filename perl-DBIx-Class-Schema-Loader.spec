@@ -30,6 +30,7 @@ BuildRequires:  perl(Test::Exception)
 BuildRequires:  perl(Test::More)  >= 0.940.0
 BuildRequires:  perl(Test::Warn)
 BuildRequires:	perl(UNIVERSAL::require)
+BuildRequires:	perl(strictures)
 Provides:	perl(DBIx::Class::Schema::Loader::Utils)
 
 BuildArch:	noarch
